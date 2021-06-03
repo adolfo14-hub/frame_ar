@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="esp">
+
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!---Librerias AR-->
+
+	<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+	<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <title>Frameworks AR</title>
+    <style>
+        .button {
+          background-color: #000000; 
+          
+          color: rgb(255, 255, 255);
+          padding: 7px;
+          text-align: center;
+          display: inline-block;
+          font-size: 13px;
+          margin: 5px 3px;
+          border-radius: 15px;
+          border: 3px solid rgb(255, 255, 255);
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        .p {
+          background-color: #000000; 
+          
+          color: rgb(255, 255, 255);
+          padding: 7px;
+          text-align: center;
+          display: inline-block;
+          font-size: 13px;
+          margin: 5px 3px;
+          box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        
+        </style>
+
+<div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+    <p class="p">Da click en los botones y acerca el marcador Hiro para comenzar a ver las animaciones</p>
+	<button class="button" id="bot1"> Cohete </button>
+	<button class="button" id="bot2"> Boeing </button>
+	<button class="button" id="bot3"> Humvee </button>
+</div>
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  
+<body style='margin : 0px; overflow: hidden;'></body>
+
+    <a-scene embedded arjs="debugUIEnabled: false;" vr-mode-ui="enabled: true">  
+
+        <a-marker preset="hiro">
+
+		    <a-entity id="entidad1"  >
+        </a-marker>
+    <a-entity camera></a-entity>
+</a-scene>
+	
+
+<script>
+    
+    document.getElementById("bot1").addEventListener("click", (e)=>{
+
+        var mod = document.querySelector('#entidad1');
+
+        mod.setAttribute("obj-model", 'obj: url(moduno/rocket.obj); mtl: url(moduno/rocket.mtl)');
+	    mod.setAttribute("scale", '.700 .700 .700 .700');
+  })
+  
+    document.getElementById("bot2").addEventListener("click", (e)=>{
+
+    var mod = document.querySelector('#entidad1');
+
+    mod.setAttribute("obj-model", 'obj: url(modos/avion.obj); mtl: url(modos/avion.mtl)');
+    mod.setAttribute("scale", '.700 .700 .700 .700');
+
+})
+
+    document.getElementById("bot3").addEventListener("click", (e)=>{
+
+    var mod = document.querySelector('#entidad1');
+
+    mod.setAttribute("obj-model", 'obj: url(modtres/Humvee.obj); mtl: url(modtres/Humvee.mtl)');
+    mod.setAttribute("scale", '.010 .010 .010 .010 ');
+
+})
+ 
+
+</script>
+
+
+</html>
